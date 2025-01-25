@@ -13,7 +13,8 @@ const Bestcard = (props : typeprop) => {
     
   return (
     <div className=" bg-[#FFFFFF] mb-[50px]">
-    <Image src={image} alt="image" width={400} height={500} className="min-h-[500px] bg-cover object-cover" />
+      <div className="h-[500px] w-auto">
+    <Image src={image} alt="image" width={400} height={500} className="min-h-[500px] max-h-[500px]   object-cover" /></div>
     <div className=" flex flex-col py-[25px] px-[35px] gap-[10px] justify-center items-center ">
         <h5 className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px]">{title}</h5>
         <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]">English Department</p>
