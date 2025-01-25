@@ -12,7 +12,7 @@ const Carousel2 = () => {
                 <h4 className="font-montserrat font-normal sm:text-[14px] sm:leading-[20px] text-[20px] leading-[30px] tracking-[0.2px] sm:text-start text-center sm:w-auto w-[291px] sm:mr-[168px] mr-0   ">We know how large objects will act, We know how are objects will act, We know</h4>
                 <div id="cta " className="flex  flex-col sm:flex-row items-center gap-[34px]">
                     <h3 className="font-montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px]">$16.48</h3>
-                    <button className="font-montserrat font-bold text-[14px] leading-[22px] tracking-[0.2px] rounded-[5px] py-[15px] px-[40px] bg-[#2DC071]">ADD TO CART</button>
+                    <button className="font-montserrat font-bold text-[14px] leading-[22px] tracking-[0.2px] rounded-[5px] py-[15px] px-[40px] bg-[#2DC071]  transform transition-transform duration-1000 hover:scale-110 hover:translate-2  ">ADD TO CART</button>
                 </div>
             </div>
            <Image src={dude} alt="" className="px-[33.5] " />

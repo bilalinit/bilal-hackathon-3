@@ -189,7 +189,7 @@ const NavBar = ({ product }: { product: Product[] }) => {
               </Link>
               <Link
                 className=" transform transition-transform duration-600 hover:scale-110 hover:translate-2 font-montserrat font-medium text-[24px] leading-[24px] tracking-[0.2px] hover:text-slate-500 duration-500"
-                href={"/productdetails"}
+                href={"/"}
               >
                 Product
               </Link>
@@ -216,7 +216,7 @@ const NavBar = ({ product }: { product: Product[] }) => {
               <Link href={"/productlisting"}className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">
                 <Image src={drop} alt="dropdown icon" />
               </Link>
-              <Link href={"productdetails"} className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">About</Link>
+              <Link href={""} className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">About</Link>
               <li className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">Blog</li>
               <li className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">Contact</li>
               <li className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">Pages</li>

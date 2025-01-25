@@ -11,7 +11,7 @@ interface typeprop {
 const Card88 = (props :typeprop) => {
     const {image} = props
   return (
-    <div id="card-1 " className="">
+    <div id="card-1 " className="transform transition-transform duration-1000 hover:scale-110 hover:translate-2 ">
     <div className={`${image}  max-w-auto h-[300px] bg-cover sm:bg-center bg-left-bottom pt-[20px] pl-[20px]` }>
         <Image src={new3} alt=""/></div>
         <div id="card-contant" className="pt-[25px]  pr-[25px] pl-[25px] pb-[35px] flex flex-col gap-[10px]">

@@ -51,10 +51,10 @@ const [first, setfirst] = useState(0)
                     <div id="col-md-6" className="sm:w-[510px] w-[348px]   sm:h-[550px]">
                         <div id="carousal2" className="sm:w-[506px] sm:h-[546px]  flex flex-col gap-[21px] justify-center">
                           <div className="lg:w-[530px] w-auto  overflow-hidden ">  
-                          <Image src={elem.imageUrl} alt="asda" width={500} height={500} className="h-[500px] object-cover w-full " /></div>
+                          <Image src={elem.imageUrl} alt="main image" width={500} height={500} className="h-[500px] object-cover sm:w-full " /></div>
                             <div id="carousel indicators" className=" flex gap-[19px]" >
-                            <Image src={elem.imageUrl} width={400} height={400} className="w-[130px] h-[80px] " alt=""/>
-                                <Image src={elem.imageUrl} width={400} height={400} className="w-[130px] h-[80px] opacity-50 " alt=""/>
+                            <Image src={elem.imageUrl} width={400} height={400} className="w-[130px] h-[80px] " alt="side img"/>
+                                <Image src={elem.imageUrl} width={400} height={400} className="w-[130px] h-[80px] opacity-50 " alt="side img 2"/>
                             </div>
                         </div>
                     </div>
@@ -95,13 +95,13 @@ const [first, setfirst] = useState(0)
         </div> 
          <div className=" flex flex-col items-center justify-center gap-[17px] ">
     <div id="top" className=" h-[91px] flex items-center sm:p-0 px-[21px] py-[9.5]  justify-center ">
-        <div id="nav" className=" flex items-center justify-center">
-            <div className="sm:p-[24px] py-[24px] px-[12px] flex justify-center items-center" ><p className=" text-[#737373] font-montserrat font-semibold text-[14px] leading-[24px] tracking-[0.2px] cursor-pointer">Description</p></div>
-            <div className="sm:p-[24px] py-[24px] px-[12px] flex justify-center items-center" ><p className=" text-nowrap text-[#737373] font-montserrat font-semibold text-[14px] leading-[24px] tracking-[0.2px] cursor-pointer">Additional Information</p></div>
-            <div className="sm:p-[24px] py-[24px] px-[12px] flex justify-center items-center" ><p className=" text-[#737373] font-montserrat font-semibold text-[14px] leading-[24px] tracking-[0.2px] cursor-pointer">Reviews </p> <p className=" text-[#23856D]">(0)</p></div>
+        <div id="nav" className=" flex flex-wrap items-center gap-2 justify-center">
+            <div className="sm:p-[24px] py-[24px] flex justify-center items-center" ><p className=" text-[#737373] font-montserrat font-semibold text-[14px] leading-[24px] tracking-[0.2px] cursor-pointer">Description</p></div>
+            <div className="sm:p-[24px] py-[24px]  flex justify-center items-center" ><p className=" text-nowrap text-[#737373] font-montserrat font-semibold text-[14px] leading-[24px] tracking-[0.2px] cursor-pointer">Additional Information</p></div>
+            <div className="sm:p-[24px] py-[24px]  flex justify-center items-center" ><p className=" text-[#737373] font-montserrat font-semibold text-[14px] leading-[24px] tracking-[0.2px] cursor-pointer">Reviews </p> <p className=" text-[#23856D]">(0)</p></div>
         </div>
     </div>
-    <div id=" main div" className="  flex justify-center">
+    <div id=" main div" className="  flex justify-center overflow-hidden">
         <div id="container" className=" pt-6 pb-12">
             <div id="row" className=" flex lg:flex-row flex-col gap-[30px]">
                 <Image src={elem.imageUrl} width={700} height={700} alt="" className="rounded-lg w-[300px] object-cover bg-cover"/>

@@ -57,12 +57,12 @@ const Bestseller = async() => {
         <div id="text-container" className="flex flex-col gap-[10px] justify-center items-center ">
             <h4 className="font-montserrat font-normal text-[20px] leading-[30px] tracking-[0.2px]">Featured Products</h4>
             <h2 className="font-montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px] ">EDITOR’S PICK</h2>
-            <p className="font-montserrat font-normal text-[14px] leading-[20px] tracking-[0.2px] ">Problems trying to resolve the conflict between </p>
+            <p className="font-montserrat font-normal text-[14px] leading-[20px] tracking-[0.2px] text-center ">Problems trying to resolve the conflict between </p>
         </div>
-        <div id="main-cards" className=" grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 gap-[30px]">
+        <div id="main-cards" className=" grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 gap-[30px] ">
             {sanityData.map((elem : ProductPreview)=>{
                 return (
-                    <Link key={elem._id} href={`/product/${elem.slug}`} >
+                    <Link key={elem._id} href={`/product/${elem.slug}`} className=" transform transition-transform duration-1000 hover:scale-105 hover:translate-2" >
                         <Bestcard  discountPercentage={elem.dicountPercentage} image={elem.imageUrl} title={elem.title} price={elem.price} />
                     </Link>
                 )
