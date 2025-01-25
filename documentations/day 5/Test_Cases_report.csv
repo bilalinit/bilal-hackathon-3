@@ -1,0 +1,11 @@
+Test Case ID,Test Case Description,Test Steps,Expected Result,Actual Result,Status,Severity Level,Assigned To,Remarks
+TC001,Validate home page functionality,Open home page > Verify displayed content,Home page loads with all sections visible,Home page displays as expected,Passed,Low,-,No issues found
+TC002,Validate product listing page,Open product page > Verify products,Products displayed correctly,Products displayed correctly,Passed,Low,-,No issues found
+TC003,Test product detail page,Click on a product > Verify details,Product details displayed correctly,Product details displayed correctly,Passed,Medium,-,Works as expected
+TC004,Validate cart functionality,Add product to cart > Verify cart contents,Cart updates with added product,Cart updates as expected,Passed,High,-,Cart works correctly
+TC005,Test add to cart functionality,Add product to cart > Verify cart count,Cart count updates correctly,Cart count updates correctly,Passed,High,-,Works as expected
+TC006,Test remove from cart functionality,Remove product from cart > Verify cart count,Cart count decreases correctly,Cart count decreases correctly,Passed,High,-,Remove functionality works
+TC007,Validate login functionality,Enter credentials > Click login,User logs in successfully,User logged in successfully,Passed,High,-,No issues found
+TC008,Validate signup functionality,Enter details > Click signup,User account created successfully,Account created successfully,Passed,High,-,Signup works as expected
+TC009,Validate checkout process,Add products to cart > Proceed to checkout,Checkout process completes successfully,Order placed successfully,Passed,Critical,-,Checkout process smooth
+TC010,Validate order confirmation page,Place an order > Verify confirmation page,Order confirmation page displays correctly,Confirmation page displays as expected,Passed,Medium,-,Confirmation page works
