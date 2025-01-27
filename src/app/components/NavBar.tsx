@@ -136,7 +136,7 @@ const NavBar = ({ product }: { product: Product[] }) => {
                         <ul className=" gap-5">
                           {filteredProducts.map((item) => (
                             <Link
-                              href={`product/${item.slug}`}
+                              href={`../product/${item.slug}`}
                               key={item._id}
                               className="border flex p-2 items-center my-2 gap-5 rounded shadow">
                               <Image
@@ -309,7 +309,7 @@ const NavBar = ({ product }: { product: Product[] }) => {
                         <ul className=" gap-5">
                           {filteredProducts.map((item) => (
                             <Link
-                              href={`product/${item.slug}`}
+                              href={`../product/${item.slug}`}
                               key={item._id}
                               className="border flex p-2 items-center my-2 gap-5 rounded shadow">
                               <Image
