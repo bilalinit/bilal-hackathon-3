@@ -1,0 +1,8 @@
+Test Case ID,Description,Steps,Expected Result,Actual Result,Status,Remarks
+TC001,Validate product listing,Open product page > Verify products,Products displayed,Products displayed,Passed,No issues found
+TC002,Test form validation,Submit form with empty fields,Display error message,Error message displayed,Passed,Works as expected
+TC003,Validate login functionality,Enter valid credentials > Submit,Login successful,Login successful,Passed,No issues found
+TC004,Verify HTTPS connection,Open site > Check HTTPS status,HTTPS enabled,HTTPS enabled,Passed,Secure connection
+TC005,Test API error handling,Disconnect API > Refresh page,Show fallback message,Fallback message shown,Passed,Handled gracefully
+TC006,Validate logout functionality,Click logout button,Redirect to homepage > Session terminated,Redirect successful,Passed,Session cleared successfully
+TC007,Check cart functionality,Add item to cart > Verify cart,Cart updates correctly,Cart updates correctly,Passed,Works as expected
