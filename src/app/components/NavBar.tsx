@@ -195,7 +195,7 @@ const NavBar = ({ product }: { product: Product[] }) => {
               </Link>
               <Link
                 className=" transform transition-transform duration-600 hover:scale-110 hover:translate-2 font-montserrat font-medium text-[24px] leading-[24px] tracking-[0.2px] hover:text-slate-500 duration-500"
-                href={"/productlisting"}
+                href={"../productlisting"}
               >
                 Pricing
               </Link>
@@ -213,7 +213,7 @@ const NavBar = ({ product }: { product: Product[] }) => {
           <div className="w-auto h-auto sm:mr-0 lg:mr-[25.53vw]">
             <ul className="flex gap-[15px] items-center justify-center font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text-center cursor-pointer text-[#737373]">
               <Link href={"/"} className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">Home</Link>
-              <Link href={"/productlisting"}className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">
+              <Link href={"../productlisting"}className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">
                 <Image src={drop} alt="dropdown icon" />
               </Link>
               <Link href={""} className="transform transition-transform duration-600 hover:scale-110 hover:translate-2">About</Link>
