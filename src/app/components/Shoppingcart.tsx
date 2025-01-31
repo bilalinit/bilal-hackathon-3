@@ -78,7 +78,7 @@ const route = useRouter()
                     alt="product image"
                     height={300}
                     width={300}
-                    className="w-[109px] h-[134px] object-cover bg-center"
+                    className="w-[109px] h-[134px] object-cover bg-center rounded-md"
                   />
                   <div id="description" className="flex flex-col gap-[8px]">
                     <h4 className="font-clash font-normal sm:text-[20px] sm:leading-[28px] text-[16px] leading-[22.4px]">
@@ -141,7 +141,7 @@ const route = useRouter()
           </p>
         </div>
         <div className="flex justify-end sm:mb-[48px] mb-[55px] mt-[36px]">
-          <button onClick={handlecheckout} className="bg-[#2A254B] px-[32px] py-[16px] sm:w-auto w-[342px] flex justify-center">
+          <button onClick={handlecheckout} className="bg-[#2A254B] hover:bg-slate-800 rounded-lg px-[32px] py-[16px] sm:w-auto w-[342px] flex justify-center">
             <p className="text-white font-satoshi font-normal text-[16px] leading-[24px]">
               Go to checkout
             </p>

@@ -1,4 +1,6 @@
+"use client"
 import Container2 from "../components/Container2"
+
 import Container3 from "../components/Container3"
 import Filterrow from "../components/Filterrow"
 import Footer2 from "../components/Footer2"

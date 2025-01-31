@@ -3,7 +3,6 @@ import { client } from "@/sanity/lib/client";
 import Productcard from "./Productcard"
 //import { link } from "fs";
 import Link from "next/link";
-
 /*const data = [
     {
         image: "bg-[url('/pl1.jpeg')]"
@@ -71,7 +70,7 @@ const Products = async () => {
             {sanityData.map((elem : Product)=>{
                 return (
                     <Link key={elem._id} href={`/product/${elem.slug}`} className="transform transition-transform duration-1000 hover:scale-105 hover:translate-2 " >
-                    <Productcard key={elem._id} image={elem.imageUrl} />
+                    <Productcard key={elem._id} image={elem.imageUrl} price={elem.price} />
                     </Link>
                 )
             })}
