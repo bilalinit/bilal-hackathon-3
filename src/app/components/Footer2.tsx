@@ -57,7 +57,7 @@ const Footer2 = () => {
                 <div className="flex flex-col  text-[#737373] font-montserrat font-normal text-[14px] leading-[28px] tracking-[0.2px] ">
                     <div className="flex flex-col gap-[20px]">
                      <h5 id="heading" className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px] flex flex-col gap-[20px] text-[#252B42]">Get In Touch</h5>
-                        <form className="flex ">
+                        <form id="email" className="flex ">
                             <input type="email" placeholder="Your Email" className="bg-[#E6E6E6] py-[15px]  pl-[20px] rounded-tl-[5px] rounded-bl-[5px] " />
                             <button type="submit" className="bg-[#23A6F0] px-[22.5px] py-[15px] rounded-tr-[5px] rounded-br-[5px] ">
                                 <p className="font-montserrat font-normal text-[14px] leading-[28px] tracking-[0.2px] text-[#FFFFFF]">Subscribe</p>
