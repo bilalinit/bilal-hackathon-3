@@ -1,4 +1,5 @@
 import { client } from "@/sanity/lib/client";
+
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import Footer2 from "@/app/components/Footer2";
 import Bestseller from "@/app/components/Bestseller";

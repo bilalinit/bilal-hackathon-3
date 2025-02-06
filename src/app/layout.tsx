@@ -74,8 +74,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
       >
-        <NavBar product={data} />
+        
         <AppWrapper>
+          <NavBar product={data} />
           {children}
           <Toaster />
         </AppWrapper>

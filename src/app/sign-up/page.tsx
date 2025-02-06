@@ -1,58 +1,103 @@
 "use client";
-
 import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
 import { auth } from "../firebase/config";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const SignUpPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [fullName, setFullName] = useState<string>("");
   const route = useRouter();
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
-  const googleProvider = new GoogleAuthProvider();
+  const [createUserWithEmailAndPassword, userCredential, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  if (userCredential) {
+    route.push("../sign-in");
+  }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
     try {
-      const res = await createUserWithEmailAndPassword(email, password);
-      if (res) {
-        await updateProfile(res.user, { displayName: fullName });
-        console.log("User registered successfully:", res.user);
-        setEmail("");
-        setPassword("");
-        setFullName("");
-        route.push("/");
-      }
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      console.log("Google Sign In successful:", user);
+      route.push("/"); // Redirect to home page after successful login
     } catch (err) {
-      console.error("Error while signing up:", err);
+      console.error("Error with Google Sign In:", err);
     }
   };
 
-  if (user) {
-    route.push("/");
-  }
-  const handleGoogleSignIn = async () => {
-    try {
-      const res = await signInWithPopup(auth, googleProvider);
-      console.log("Google sign-in successful:", res.user);
-      route.push("/"); 
-    } catch (err) {
-      console.error("Error during Google sign-in:", err);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email && password) {
+      try {
+        const userCredentialResult = await createUserWithEmailAndPassword(
+          email,
+          password
+        );
+        if (userCredentialResult && userCredentialResult.user) {
+          const user = userCredentialResult.user;
+
+          // Update profile with full name
+          await updateProfile(user, {
+            displayName: fullName,
+          });
+
+          // Send email verification
+          await sendEmailVerification(user);
+          alert("Signup successful! Please check your email for verification.");
+
+          // Sign out the user after successful signup
+          auth.signOut();
+
+          route.push("/sign-in"); // Redirect to login page
+        }
+      } catch (err) {
+        console.error("Error creating user:", err);
+      }
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center">
-      <div className="bg-gray-800 text-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div
+      className={`min-h-screen bg-gray-900 flex items-center justify-center py-20 ${montserrat.className}`}
+    >
+      <div className="bg-gray-800 text-white p-8 rounded-3xl shadow-2xl w-full max-w-md">
+        <h2 className="text-3xl font-semibold mb-8 text-center">Sign Up</h2>
+
+        {/* Google Sign-In Button */}
+        <button
+          onClick={handleGoogleSignIn}
+          className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-full transition duration-300 mb-6"
+        >
+          Sign Up with Google
+        </button>
+
+        {/* Divider */}
+        <div className="flex items-center my-6">
+          <div className="flex-grow border-t border-gray-700"></div>
+          <span className="px-2 text-sm text-gray-500">or</span>
+          <div className="flex-grow border-t border-gray-700"></div>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="fullName" className="block text-sm font-medium mb-2">
+            <label
+              htmlFor="fullName"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Full Name
             </label>
             <input
@@ -60,12 +105,15 @@ const SignUpPage: React.FC = () => {
               id="fullName"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              required
-              className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500 border border-gray-600"
+              className="w-full px-4 py-3 rounded-md bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-600"
             />
           </div>
+
           <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Email Address
             </label>
             <input
@@ -73,12 +121,15 @@ const SignUpPage: React.FC = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500 border border-gray-600"
+              className="w-full px-4 py-3 rounded-md bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-600"
             />
           </div>
+
           <div>
-            <label htmlFor="password" className="block text-sm font-medium mb-2">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Password
             </label>
             <input
@@ -86,33 +137,28 @@ const SignUpPage: React.FC = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500 border border-gray-600"
+              className="w-full px-4 py-3 rounded-md bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-600"
             />
           </div>
+
           <button
             type="submit"
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition duration-300"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-full transition duration-300"
             disabled={loading}
           >
             {loading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
 
-        <button
-          onClick={handleGoogleSignIn}
-          className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 mt-4"
-        >
-          Sign Up with Google
-        </button>
+        {error && (
+          <p className="text-sm text-red-500 mt-4 text-center">{error.message}</p>
+        )}
 
-        {error && <p className="text-sm text-red-500 mt-2 text-center">{error.message}</p>}
-
-        <p className="text-sm text-gray-400 mt-4 text-center">
+        <p className="text-sm text-gray-500 mt-6 text-center">
           Already have an account?{" "}
-          <Link href="../sign-in" className="text-indigo-500 hover:underline">
+          <a href="../sign-in" className="text-indigo-400 hover:underline">
             Log In
-          </Link>
+          </a>
         </p>
       </div>
     </div>
