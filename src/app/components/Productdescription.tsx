@@ -33,7 +33,7 @@ const Productdescription = () => {
                                 <h6 className="text-[#737373] font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]">the quick fox jumps over the lazy dog</h6>
                             </div> <div className="flex gap-[20px] items-center">
                                 <Image src={rightaero} alt="" className="w-[9px] h-[16px]"/>
-                                <h6 className="text-[#737373] font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]">the quick fox jumps over the lazy dog</h6>
+                                <h6 className="text-[#737373] font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]">the quick fox jumps overdf the lazy dog</h6>
                             </div>
                             <div className="flex gap-[20px] items-center">
                                 <Image src={rightaero} alt="" className="w-[9px] h-[16px]"/>
