@@ -8,8 +8,8 @@ interface Product {
   tags: string[];
   isNew: boolean;
   _id: string;
-  discountPercentage: number;
-  slug: string;
+  dicountPercentage: number;
+  slug: string;     
   description: string;
 }
 
@@ -29,7 +29,7 @@ const useProducts = () => {
             tags,
             isNew,
             _id,
-            discountPercentage,
+            dicountPercentage,
             'slug': slug.current
           }`
         );

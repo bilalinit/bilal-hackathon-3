@@ -47,7 +47,7 @@ interface Product {
     tags: string[];
     isNew: boolean;
     _id: string;
-    discountPercentage: number;
+    dicountPercentage: number;
     slug: string;
     description: string;
   }
