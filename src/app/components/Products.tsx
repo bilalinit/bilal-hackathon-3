@@ -52,7 +52,9 @@ interface Product {
   
 
 const Products = async () => {
-     const sanityData = await client.fetch(`*[_type == "product"] | order(_createdAt desc)[0...8] {
+    let sanityData
+    try {
+      sanityData = await client.fetch(`*[_type == "product"] | order(_createdAt desc)[0...8] {
             title,
             price,
             "imageUrl": productImage.asset->url,
@@ -62,7 +64,9 @@ const Products = async () => {
             discountPercentage, // Typo fixed and comma added
             'slug': slug.current
           }`);
-          
+        } catch (error) {
+            console.error("Error fetching products from Sanity:", error);
+        }   
   return (
     <div className=" flex justify-center pt-[80px] pb-[48px] px-5 ">
     <div id="container" className=" flex flex-col gap-[48px] ">
