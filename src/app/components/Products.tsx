@@ -1,8 +1,10 @@
 
-import { client } from "@/sanity/lib/client";
+"use client"
+//import { client } from "@/sanity/lib/client";
 import Productcard from "./Productcard"
 //import { link } from "fs";
 import Link from "next/link";
+//import { useEffect } from "react";
 /*const data = [
     {
         image: "bg-[url('/pl1.jpeg')]"
@@ -50,23 +52,11 @@ interface Product {
     description: string;
   }
   
+import useProducts from "../components/data"
 
-const Products = async () => {
-    let sanityData
-    try {
-      sanityData = await client.fetch(`*[_type == "product"] | order(_createdAt desc)[0...8] {
-            title,
-            price,
-            "imageUrl": productImage.asset->url,
-            tags,
-            isNew,
-            _id,
-            discountPercentage, // Typo fixed and comma added
-            'slug': slug.current
-          }`);
-        } catch (error) {
-            console.error("Error fetching products from Sanity:", error);
-        }   
+const Products =  () => {
+    const { products } = useProducts();
+   const    sanityData = products 
   return (
     <div className=" flex justify-center pt-[80px] pb-[48px] px-5 ">
     <div id="container" className=" flex flex-col gap-[48px] ">
