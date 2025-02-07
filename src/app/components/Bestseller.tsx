@@ -1,5 +1,5 @@
-"use client"
-//import { client } from "@/sanity/lib/client"
+
+import { client } from "@/sanity/lib/client"
 import Bestcard from "./bestcard"
 import Link from "next/link"
 
@@ -27,21 +27,29 @@ import Link from "next/link"
 ]
 */
 
-interface Product {
-    price: number;
+interface ProductPreview {
     title: string;
+    price: number;
     imageUrl: string;
     tags: string[];
     isNew: boolean;
     _id: string;
     dicountPercentage: number;
     slug: string;
-    description: string;
   }
-  import useProducts from "../components/data"
-const Bestseller = () => {
-    const { products } = useProducts();
-   const    sanityData = products 
+  
+  
+const Bestseller = async() => {
+    const sanityData = await client.fetch(`*[_type == "product"] | order(_createdAt desc)[0...8] {
+        title,
+        price,
+        "imageUrl": productImage.asset->url,
+        tags,
+        isNew,
+        _id,
+        dicountPercentage, 
+        'slug': slug.current
+      }`);
       
   return (
     <div className=" flex justify-center pt-[80px] px-5 ">
@@ -52,7 +60,7 @@ const Bestseller = () => {
             <p className="font-montserrat font-normal text-[14px] leading-[20px] tracking-[0.2px] text-center ">Problems trying to resolve the conflict between </p>
         </div>
         <div id="main-cards" className=" grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 gap-[30px] ">
-            {sanityData.map((elem : Product)=>{
+            {sanityData.map((elem : ProductPreview)=>{
                 return (
                     <Link key={elem._id} href={`/product/${elem.slug}`} className=" transform transition-transform duration-1000 hover:scale-105 hover:translate-2" >
                         <Bestcard  discountPercentage={elem.dicountPercentage} image={elem.imageUrl} title={elem.title} price={elem.price} />
